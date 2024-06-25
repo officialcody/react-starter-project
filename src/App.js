@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import useWindow from "./customhooks/useWindow";
 
 function App() {
+  const [value, setValue] = useState("");
+  const { windowHeight, windowWidth } = useWindow();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input
+        type="text"
+        placeholder="Enter Text"
+        value={value}
+        onChange={(event) => setValue(event.target.value)}
+      />
+      <div>Width: {windowWidth}</div>
+      <div>Height: {windowHeight}</div>
     </div>
   );
 }
