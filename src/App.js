@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
-import useWindow from "./customhooks/useWindow";
+// import useWindow from "./customhooks/useWindow";
 import TodoApp from "./components/TodoApp";
+import RealTimeSearchableField from "./components/RealTimeSearchField";
 
 function App() {
-  const [value, setValue] = useState("");
-  const { windowHeight, windowWidth } = useWindow();
+  // const [value, setValue] = useState("");
+  // const { windowHeight, windowWidth } = useWindow();
 
   return (
     <div className="App">
@@ -17,7 +18,8 @@ function App() {
       />
       <div>Width: {windowWidth}</div>
       <div>Height: {windowHeight}</div> */}
-      <TodoApp />
+      {/* <TodoApp /> */}
+      <RealTimeSearchableField />
     </div>
   );
 }
