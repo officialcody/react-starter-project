@@ -4,6 +4,7 @@ function RealTimeSearchableField() {
   const [users, setUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
+  const [filteredUsers, setFilteredUsers] = useState([]);
 
   useEffect(() => {
     async function fetchUsers() {
@@ -22,7 +23,7 @@ function RealTimeSearchableField() {
   // Debounce search input
   useEffect(() => {
     const handler = setTimeout(() => {
-      setUsers(
+      setFilteredUsers(
         users.filter((user) =>
           user.name.toLowerCase().includes(searchTerm.toLowerCase())
         )
@@ -37,23 +38,25 @@ function RealTimeSearchableField() {
   };
 
   return (
-    <div className="flex justify-center">
-      <div className="block">
+    <div className="flex flex-col">
+      <div className="w-2/4 m-auto">
         <h1 className="text-4xl text-center font-bold p-2 m-2">User List</h1>
         <input
-          className="px-2 py-1 border rounded-lg m-2 "
+          className="p-4 my-2 border rounded-lg justify-center w-full box-border"
           type="text"
           placeholder="Search Users"
           value={searchTerm}
           onChange={handleSearchChange}
         />
         {loading ? (
-          <p>Loading...</p>
+          <div className="flex justify-center">
+            <div class="border-gray-300 h-10 w-10 animate-spin rounded-full border-8 border-t-blue-600" />
+          </div>
         ) : (
           <ul>
-            {users.map((user) => (
+            {filteredUsers.map((user) => (
               <li
-                className="bg-gray-100 p-4 m-2 h-min rounded-lg hover:bg-gray-200"
+                className="bg-gray-100 p-4 my-2 h-min rounded-lg hover:bg-gray-200"
                 key={user.id}
               >
                 <div>
