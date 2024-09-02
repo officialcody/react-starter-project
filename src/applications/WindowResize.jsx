@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useWindow from "../customhooks/useWindow";
+import useWindow from "../hooks/useWindow";
 const WindowResize = () => {
   const [value, setValue] = useState("");
   const { windowHeight, windowWidth } = useWindow();
