@@ -4,6 +4,7 @@ import TodoApp from "../applications/TodoApp";
 import { createBrowserRouter } from "react-router-dom";
 import WindowResize from "../applications/WindowResize";
 import RealTimeSearchableField from "../applications/RealTimeSearchField";
+import UseEffectPractice from "../applications/UseEffectPractice";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: "/realtimesearch",
         element: <RealTimeSearchableField />,
+      },
+      {
+        path: "/useEffect",
+        element: <UseEffectPractice />,
       },
     ],
   },
